@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>C0P0K</title>
+</head>
+<body>
+    <h2>Всего моделей</h2>
+    <a href="create/">добавление модели</a>
+    <table>
+        <thead><th>name_model</th><th>just_int</th><th>relation_to_what</th><th></th></thead>
+        {% for model in testmodelotm2 %}
+        <tr>
+            <td>{{ model.name_model }}</td>
+            <td>{{ model.just_int }}</td>
+            <td>{{ model.relation_to_what }}</td>
+            <td>
+                <a href="edit/{{model.id}}">Изменить</a> | <a href="delete/{{model.id}}">Удалить</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

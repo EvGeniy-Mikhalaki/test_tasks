@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>C0P0K</title>
+</head>
+<body>
+    <h2>Добавление модели</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <p>
+            <label>Введите name_model</label><br>
+            <input type="text" name="name_model" />
+        </p>
+        <p>
+            <label>Введите just_int</label><br>
+            <input type="number" name="just_int" />
+        </p>
+        <p>
+            <label>Введите relation_to_what</label><br>
+            <select name="_test_model_otm_1">
+            {% for model in _test_model_otm_1 %}
+                <option value="{{model.id}}">{{model.name_model}}</option>
+            {% endfor %}
+            </select>
+        </p>
+        <input type="submit" value="Сохранить" >
+    </form>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>C0P0K</title>
+</head>
+<body>
+    <h2>Изменение модели</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <p>
+            <label>Введите название модели</label><br>
+            <input type="text" name="name_model" value="{{_test_model_otm_2.name_model}}" />
+        </p>
+        <p>
+            <label>Введите just_int</label><br>
+            <input type="number" name="just_int" value="{{_test_model_otm_2.just_int}}"/>
+        </p>
+        <p>
+            <label>Введите _test_model_otm_1</label><br>
+            <select name="_test_model_otm_1">
+            {% for model in _test_model_otm_1 %}
+                <option value="{{model.id}}"
+                {%if model.id == _test_model_otm_2.relation_to_what%}
+                  selected
+                {%endif%}
+            >{{model.name_model}}</option>
+            {% endfor %}
+            </select>
+        </p>
+        <input type="submit" value="Сохранить" >
+    </form>
+</body>
+</html>
